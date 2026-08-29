@@ -47,4 +47,15 @@ jobs:
             exit 0
           fi
           git commit -m "docs(issues): 📝 收录 Issue #${{ github.event.issue.number }}"
-          git push
+          # 即使多个事件同时进入队列，也在推送前同步远程并自动重试。
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "推送冲突，第 ${attempt} 次重试"
+            git fetch origin main
+            git rebase origin/main
+            sleep 2
+          done
+          echo "多次推送失败"
+          exit 1
