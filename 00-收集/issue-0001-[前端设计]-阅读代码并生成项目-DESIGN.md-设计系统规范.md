@@ -3,7 +3,7 @@ issue_number: 1
 title: "[前端设计] 阅读代码并生成项目 DESIGN.md 设计系统规范"
 author: "w1ndys"
 created_at: "2026-04-13 07:42:48 UTC"
-updated_at: "2026-08-29 03:45:07 UTC"
+updated_at: "2026-08-29 03:49:59 UTC"
 labels: ["prompt"]
 source_url: "https://github.com/w1ndys/prompts/issues/1"
 ---
