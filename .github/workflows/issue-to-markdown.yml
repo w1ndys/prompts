@@ -9,7 +9,8 @@ permissions:
   issues: read
 
 concurrency:
-  group: issue-to-markdown-${{ github.event.issue.number }}
+  # 所有归档任务共用一个队列，避免并发提交互相覆盖。
+  group: issue-to-markdown
   cancel-in-progress: false
 
 env:
