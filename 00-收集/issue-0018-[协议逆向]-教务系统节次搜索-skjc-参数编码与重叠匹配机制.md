@@ -3,7 +3,7 @@ issue_number: 18
 title: "[协议逆向] 教务系统节次搜索 skjc 参数编码与重叠匹配机制"
 author: "w1ndys"
 created_at: "2026-07-17 15:07:39 UTC"
-updated_at: "2026-08-29 03:44:25 UTC"
+updated_at: "2026-08-29 03:50:35 UTC"
 labels: ["prompt"]
 source_url: "https://github.com/w1ndys/prompts/issues/18"
 ---
