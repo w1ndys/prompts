@@ -1,0 +1,49 @@
+name: 收录带标签的 Issue
+
+on:
+  issues:
+    types: [opened, labeled, edited]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: issue-to-markdown-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+env:
+  # 修改这三项即可调整收录规则和目标目录；job.if 中的固定标签规则也需同步修改。
+  REQUIRED_LABEL: prompt
+  REQUIRED_AUTHOR: ${{ github.repository_owner }}
+  TARGET_DIR: 00-收集
+
+jobs:
+  save-issue:
+    # 只处理带 prompt 标签、且由仓库所有者发布的 Issue。
+    if: >-
+      contains(github.event.issue.labels.*.name, 'prompt') &&
+      github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 将 Issue 转为 Markdown
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: python3 scripts/issue_to_markdown.py
+
+      - name: 提交归档文件
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- "$TARGET_DIR"
+          if git diff --cached --quiet; then
+            echo "没有需要提交的变化"
+            exit 0
+          fi
+          git commit -m "docs(issues): 📝 收录 Issue #${{ github.event.issue.number }}"
+          git push
