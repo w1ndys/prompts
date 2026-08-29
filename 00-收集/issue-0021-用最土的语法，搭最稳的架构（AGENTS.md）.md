@@ -3,7 +3,7 @@ issue_number: 21
 title: "用最土的语法，搭最稳的架构（AGENTS.md）"
 author: "w1ndys"
 created_at: "2026-08-28 15:57:16 UTC"
-updated_at: "2026-08-29 03:44:18 UTC"
+updated_at: "2026-08-29 03:49:27 UTC"
 labels: ["prompt"]
 source_url: "https://github.com/w1ndys/prompts/issues/21"
 ---
