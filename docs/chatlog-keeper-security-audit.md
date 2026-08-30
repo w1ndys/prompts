@@ -2,7 +2,7 @@
 issue: 19
 title: "[安全审计] chatlog-keeper 数据库解密原理与代码安全审计"
 source: https://github.com/w1ndys/prompts/issues/19
-state: open
+state: closed
 ---
 
 # chatlog-keeper 数据库解密原理与代码审计报告

@@ -2,7 +2,7 @@
 issue: 3
 title: "[开发方法] 从 0 开始的闯关式全栈项目开发课程大纲"
 source: https://github.com/w1ndys/prompts/issues/3
-state: open
+state: closed
 ---
 
 ```

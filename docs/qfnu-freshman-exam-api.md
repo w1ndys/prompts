@@ -2,7 +2,7 @@
 issue: 20
 title: "曲阜师范大学新生入学考试接口文档（本科生）"
 source: https://github.com/w1ndys/prompts/issues/20
-state: open
+state: closed
 ---
 
 # 曲阜师范大学 新生入学考试接口文档（本科生）

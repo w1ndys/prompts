@@ -2,7 +2,7 @@
 issue: 10
 title: "[容器化部署] Docker 镜像本地构建、上传与远程加载部署"
 source: https://github.com/w1ndys/prompts/issues/10
-state: open
+state: closed
 ---
 
 ```

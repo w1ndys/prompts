@@ -2,7 +2,7 @@
 issue: 12
 title: "[自动化监控] ISCC 2026 竞赛平台自动化监控脚本开发文档（DS）"
 source: https://github.com/w1ndys/prompts/issues/12
-state: open
+state: closed
 ---
 
 ## 🤖 Assistant

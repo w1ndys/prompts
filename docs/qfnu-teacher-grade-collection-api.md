@@ -2,7 +2,7 @@
 issue: 25
 title: "【接口文档】强智教务系统教师端成绩采集 API"
 source: https://github.com/w1ndys/prompts/issues/25
-state: open
+state: closed
 ---
 
 # 强智教务系统教师端成绩采集 API

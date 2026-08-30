@@ -2,7 +2,7 @@
 issue: 22
 title: "曲阜师范大学统一身份认证 — 滑块验证码登录分析"
 source: https://github.com/w1ndys/prompts/issues/22
-state: open
+state: closed
 ---
 
 # 曲阜师范大学统一身份认证 — 滑块验证码登录分析

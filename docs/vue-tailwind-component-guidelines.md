@@ -2,7 +2,7 @@
 issue: 6
 title: "[前端规范] Vue 3 + Tailwind CSS 组件与布局开发规范"
 source: https://github.com/w1ndys/prompts/issues/6
-state: open
+state: closed
 ---
 
 ```

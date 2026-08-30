@@ -2,7 +2,7 @@
 issue: 16
 title: "[Git 规范] Git Commit Message 中文 Emoji 规范"
 source: https://github.com/w1ndys/prompts/issues/16
-state: open
+state: closed
 ---
 
 ```

@@ -2,7 +2,7 @@
 issue: 1
 title: "[前端设计] 阅读代码并生成项目 DESIGN.md 设计系统规范"
 source: https://github.com/w1ndys/prompts/issues/1
-state: open
+state: closed
 ---
 
 ```

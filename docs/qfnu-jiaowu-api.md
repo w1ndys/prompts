@@ -2,7 +2,7 @@
 issue: 24
 title: "【文档】强智教务系统 HTTP API（登录、选课与结果查询）"
 source: https://github.com/w1ndys/prompts/issues/24
-state: open
+state: closed
 ---
 
 # 强智教务系统 HTTP API 文档

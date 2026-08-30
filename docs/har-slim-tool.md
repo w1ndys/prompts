@@ -2,7 +2,7 @@
 issue: 11
 title: "[开发工具] HAR 文件静态资源精简与接口保留 Python 工具"
 source: https://github.com/w1ndys/prompts/issues/11
-state: open
+state: closed
 ---
 
 下面是一个可直接用 `uv run` 执行的 Python 脚本，用来精简浏览器导出的 `.har` 文件，默认会：

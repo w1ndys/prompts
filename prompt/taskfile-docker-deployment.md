@@ -2,7 +2,7 @@
 issue: 4
 title: "[部署运维] Taskfile 与脚本化 Docker 部署规范"
 source: https://github.com/w1ndys/prompts/issues/4
-state: open
+state: closed
 ---
 
 ```

@@ -2,7 +2,7 @@
 issue: 8
 title: "[容器化部署] Docker 服务接入 Traefik 的 Compose 规范"
 source: https://github.com/w1ndys/prompts/issues/8
-state: open
+state: closed
 ---
 
 ```

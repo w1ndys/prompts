@@ -2,7 +2,7 @@
 issue: 18
 title: "[协议逆向] 教务系统节次搜索 skjc 参数编码与重叠匹配机制"
 source: https://github.com/w1ndys/prompts/issues/18
-state: open
+state: closed
 ---
 
 ## 背景

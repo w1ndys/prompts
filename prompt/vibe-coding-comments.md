@@ -2,7 +2,7 @@
 issue: 17
 title: "[AI 协作规范] Vibe Coding 辅助代码注释与决策记录规范"
 source: https://github.com/w1ndys/prompts/issues/17
-state: open
+state: closed
 ---
 
 ```

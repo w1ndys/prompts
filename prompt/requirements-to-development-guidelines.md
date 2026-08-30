@@ -2,7 +2,7 @@
 issue: 2
 title: "[项目规范] 根据需求蓝图整理开发规范文档"
 source: https://github.com/w1ndys/prompts/issues/2
-state: open
+state: closed
 ---
 
 ```

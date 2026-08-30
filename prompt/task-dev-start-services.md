@@ -2,7 +2,7 @@
 issue: 7
 title: "[开发运维] Task dev 一键启动前后端并清理端口占用"
 source: https://github.com/w1ndys/prompts/issues/7
-state: open
+state: closed
 ---
 
 ```

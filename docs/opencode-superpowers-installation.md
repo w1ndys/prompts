@@ -2,7 +2,7 @@
 issue: 14
 title: "[AI 工具] 在 OpenCode 中安装 Superpowers Skills"
 source: https://github.com/w1ndys/prompts/issues/14
-state: open
+state: closed
 ---
 
 ```
