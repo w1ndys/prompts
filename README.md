@@ -1,5 +1,8 @@
-# 📚 Prompts 与文档收集库
+# 📚 Prompts 与技术文档
 
-本仓库用于收集 Prompt、技术文档和开发资料。
+本仓库收集可复用的 AI Prompt 与技术资料，内容按用途分目录保存：
 
-具体内容保存在 GitHub Issues 中；当前不启用 Issue 自动归档，仓库文件仅保留本说明文档。
+- [`docs/`](docs/)：接口、协议、工具、部署和审计等技术文档。
+- [`prompt/`](prompt/)：用于 AI 协作、代码生成、审计和项目规划的 Prompt。
+
+每份 Markdown 文件保留对应 GitHub Issue 的编号、标题和来源信息。

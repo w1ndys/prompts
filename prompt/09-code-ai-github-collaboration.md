@@ -1,0 +1,24 @@
+---
+issue: 9
+title: "[AI 协作规范] Code AI 记忆与 GitHub 协作规范"
+source: https://github.com/w1ndys/prompts/issues/9
+state: open
+---
+
+```
+记住下面内容
+
+1. 涉及到gh登录的时候可以用git凭据登录gh
+
+2. commit要求如下
+
+    使用中文环境显示信息，一次性阅读所有改动
+    commit message 使用专业的编写格式：改动类型(改动文件): 改动内容，例如 feat(main.py): 优化了函数结构
+    提交信息里的贡献者 name 是 w1ndys，邮箱为 w1ndys@qq.com
+    根据改动分类，分成多次 commit 进行提交
+
+3. chat 回复的内容中的link不要使用代码块包裹，必须使用纯文本或者markdown超链接的形式
+
+4. 对于开发任务，在开始修改代码之前就要创建新的分支、并推送该分支、发起pr，然后开始修改代码，每修改完成一个步骤，立刻推送
+
+```
