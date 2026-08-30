@@ -1,10 +1,3 @@
----
-issue: 6
-title: "[前端规范] Vue 3 + Tailwind CSS 组件与布局开发规范"
-source: https://github.com/w1ndys/prompts/issues/6
-state: closed
----
-
 ```
 为了防止项目随着功能增加而失控，建议遵循以下“后端友好型”规范：
 

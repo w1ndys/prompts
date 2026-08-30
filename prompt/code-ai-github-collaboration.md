@@ -1,10 +1,3 @@
----
-issue: 9
-title: "[AI 协作规范] Code AI 记忆与 GitHub 协作规范"
-source: https://github.com/w1ndys/prompts/issues/9
-state: closed
----
-
 ```
 记住下面内容
 

@@ -1,10 +1,3 @@
----
-issue: 19
-title: "[安全审计] chatlog-keeper 数据库解密原理与代码安全审计"
-source: https://github.com/w1ndys/prompts/issues/19
-state: closed
----
-
 # chatlog-keeper 数据库解密原理与代码审计报告
 
 - 审计对象：[`labazhou2024/chatlog-keeper`](https://github.com/labazhou2024/chatlog-keeper)

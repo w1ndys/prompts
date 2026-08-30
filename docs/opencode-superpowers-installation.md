@@ -1,10 +1,3 @@
----
-issue: 14
-title: "[AI 工具] 在 OpenCode 中安装 Superpowers Skills"
-source: https://github.com/w1ndys/prompts/issues/14
-state: closed
----
-
 ```
 # 安装 superpowers：优先 git clone，失败则通过 HTTPS tarball 降级下载到本地
 git clone --depth 1 https://github.com/obra/superpowers.git ~/.config/opencode/node_modules/superpowers 2>/dev/null || {

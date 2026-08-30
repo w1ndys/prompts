@@ -1,10 +1,3 @@
----
-issue: 5
-title: "[前端审计] Vue 3 + Tailwind CSS 前端审计与重构提示词"
-source: https://github.com/w1ndys/prompts/issues/5
-state: closed
----
-
 角色设定：
 你是一个精通 Vue 3 (Composition API) 和 Tailwind CSS 的资深前端架构师。
 

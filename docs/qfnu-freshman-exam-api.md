@@ -1,10 +1,3 @@
----
-issue: 20
-title: "曲阜师范大学新生入学考试接口文档（本科生）"
-source: https://github.com/w1ndys/prompts/issues/20
-state: closed
----
-
 # 曲阜师范大学 新生入学考试接口文档（本科生）
 
 > 本文档整理自「智慧曲园」前端（Flutter Web）源码分析与线上实测。

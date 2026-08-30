@@ -1,10 +1,3 @@
----
-issue: 17
-title: "[AI 协作规范] Vibe Coding 辅助代码注释与决策记录规范"
-source: https://github.com/w1ndys/prompts/issues/17
-state: closed
----
-
 ```
 把下面要求加入到当前项目规范文件中，以后ai辅助编程必须严格遵循下面规则：
 

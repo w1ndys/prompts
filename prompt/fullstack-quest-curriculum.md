@@ -1,10 +1,3 @@
----
-issue: 3
-title: "[开发方法] 从 0 开始的闯关式全栈项目开发课程大纲"
-source: https://github.com/w1ndys/prompts/issues/3
-state: closed
----
-
 ```
 # 🎓 角色设定：顶级编程实战课程设计师 (Curriculum Designer)
 

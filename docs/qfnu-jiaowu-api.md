@@ -1,10 +1,3 @@
----
-issue: 24
-title: "【文档】强智教务系统 HTTP API（登录、选课与结果查询）"
-source: https://github.com/w1ndys/prompts/issues/24
-state: closed
----
-
 # 强智教务系统 HTTP API 文档
 
 本文档描述曲阜师范大学强智教务系统（`zhjw.qfnu.edu.cn`）的登录、选课和选课结果查询接口。

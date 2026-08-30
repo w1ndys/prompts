@@ -1,10 +1,3 @@
----
-issue: 18
-title: "[协议逆向] 教务系统节次搜索 skjc 参数编码与重叠匹配机制"
-source: https://github.com/w1ndys/prompts/issues/18
-state: closed
----
-
 ## 背景
 
 教务系统选课搜索页面的节次档位已经更新。旧界面使用：

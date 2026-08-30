@@ -1,10 +1,3 @@
----
-issue: 15
-title: "[协议逆向] 曲阜师范大学教务系统 2017 选课流程 HTTP 接口"
-source: https://github.com/w1ndys/prompts/issues/15
-state: closed
----
-
 > 本文档由代码逆向整理，源自 `backend/internal/adapter/jiaowu/`，描述本项目对接曲阜师范大学强智教务系统（`zhjw.qfnu.edu.cn`）的全部 HTTP 接口。
 > 仅供本项目开发与维护参考。
 

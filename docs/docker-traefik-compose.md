@@ -1,10 +1,3 @@
----
-issue: 8
-title: "[容器化部署] Docker 服务接入 Traefik 的 Compose 规范"
-source: https://github.com/w1ndys/prompts/issues/8
-state: closed
----
-
 ```
 新服务 Docker 化及接入 Traefik 的统一规范
 

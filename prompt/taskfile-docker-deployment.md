@@ -1,10 +1,3 @@
----
-issue: 4
-title: "[部署运维] Taskfile 与脚本化 Docker 部署规范"
-source: https://github.com/w1ndys/prompts/issues/4
-state: closed
----
-
 ```
 增加或修改taskfile文件用于开发运维，要有silent: true，包含环境部署，服务启动，部署到生产环境服务器
 task deploy 改成支持 cli 参数，示例命令如下  task deploy HOST=1.2.3.4 PORT=22 USER=root DIR=/srv/app

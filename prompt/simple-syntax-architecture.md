@@ -1,10 +1,3 @@
----
-issue: 21
-title: "用最土的语法，搭最稳的架构（AGENTS.md）"
-source: https://github.com/w1ndys/prompts/issues/21
-state: closed
----
-
 # 人话编码契约（AGENTS.md）
 
 ## 角色

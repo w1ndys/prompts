@@ -1,10 +1,3 @@
----
-issue: 16
-title: "[Git 规范] Git Commit Message 中文 Emoji 规范"
-source: https://github.com/w1ndys/prompts/issues/16
-state: closed
----
-
 ```
 把下面要求加入到当前项目规范文件中，以后ai辅助编程必须严格遵循下面规则：
 

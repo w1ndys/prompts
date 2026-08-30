@@ -1,10 +1,3 @@
----
-issue: 13
-title: "[自动化监控] ISCC 题目解出数量监控与飞书告警脚本"
-source: https://github.com/w1ndys/prompts/issues/13
-state: closed
----
-
 # ISCC 题目解出数量监控脚本开发文档
 
 ## 1. 目标
