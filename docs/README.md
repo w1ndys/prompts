@@ -15,5 +15,5 @@
 | [chatlog-keeper-security-audit.md](chatlog-keeper-security-audit.md) | #19 | [安全审计] chatlog-keeper 数据库解密原理与代码安全审计 |
 | [qfnu-freshman-exam-api.md](qfnu-freshman-exam-api.md) | #20 | 曲阜师范大学新生入学考试接口文档（本科生） |
 | [qfnu-ids-slider-login.md](qfnu-ids-slider-login.md) | #22 | 曲阜师范大学统一身份认证 — 滑块验证码登录分析 |
-| [qfnu-jiaowu-api.md](qfnu-jiaowu-api.md) | #24 | 【文档】强智教务系统 HTTP API（登录、选课与结果查询） |
+| [qfnu-jiaowu-api.md](qfnu-jiaowu-api.md) | #24, #26 | 【接口文档】强智教务系统 HTTP API（登录、选课与结果查询） |
 | [qfnu-teacher-grade-collection-api.md](qfnu-teacher-grade-collection-api.md) | #25 | 【接口文档】强智教务系统教师端成绩采集 API |
