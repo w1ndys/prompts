@@ -10,7 +10,6 @@
 | [iscc-2026-monitoring.md](iscc-2026-monitoring.md) | #12 | [自动化监控] ISCC 2026 竞赛平台自动化监控脚本开发文档（DS） |
 | [iscc-solved-count-monitor.md](iscc-solved-count-monitor.md) | #13 | [自动化监控] ISCC 题目解出数量监控与飞书告警脚本 |
 | [opencode-superpowers-installation.md](opencode-superpowers-installation.md) | #14 | [AI 工具] 在 OpenCode 中安装 Superpowers Skills |
-| [qfnu-2017-course-selection-api.md](qfnu-2017-course-selection-api.md) | #15 | [协议逆向] 曲阜师范大学教务系统 2017 选课流程 HTTP 接口 |
 | [qfnu-skjc-encoding.md](qfnu-skjc-encoding.md) | #18 | [协议逆向] 教务系统节次搜索 skjc 参数编码与重叠匹配机制 |
 | [chatlog-keeper-security-audit.md](chatlog-keeper-security-audit.md) | #19 | [安全审计] chatlog-keeper 数据库解密原理与代码安全审计 |
 | [qfnu-freshman-exam-api.md](qfnu-freshman-exam-api.md) | #20 | 曲阜师范大学新生入学考试接口文档（本科生） |

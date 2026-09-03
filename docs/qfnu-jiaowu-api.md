@@ -7,7 +7,7 @@
 - **基础地址**：`http://zhjw.qfnu.edu.cn`
 - **会话**：所有请求复用同一套 Cookie（会话 Cookie，如 `JSESSIONID`）；验证码、`scode`、`sxh` 与该会话绑定。
 - **User-Agent**：默认 `Mozilla/5.0`；选课请求使用完整浏览器 UA（Chrome/Edge 132）；结果查询请求使用 Chrome 141。
-- **重定向**：登录状态验证必须禁止自动跟随重定向，以便识别 `301/302`。
+- **重定向**：登录提交后的 SSO 交接仅允许跟随同源重定向；登录状态验证必须禁止自动跟随重定向，以便识别 `301/302`。
 
 > 响应特征：搜索/选课接口在会话失效时，响应体可能被替换为登录页（同时含 `请输入账号`、`请输入密码`、`请输入验证码`）；账号异地登录时响应体含 `您的账号在其它地方登录`。
 
@@ -132,7 +132,8 @@ encoded=<按上述规则生成的值>
 | `RANDOMCODE` | OCR 识别出的验证码 |
 | `encoded` | 1.5 步生成的凭证 |
 
-- 响应：纯文本。可能含 `密码错误` / `用户名或密码错误` / `用户名密码错误` / `您提供的用户名或者密码有误`（表示账号密码错误），或 `验证码错误` / `验证码不正确`（表示验证码错误）。
+- **成功响应**：通常为 HTTP `302`，先跳转到 `/jsxsd/xk/LoginToXk?method=jwxt&ticqzket=<一次性票据>`，再通过同源重定向进入 `/jsxsd/framework/xsMain.jsp`；客户端只在该登录交接阶段跟随同源重定向，不得跟随外部源，也不要记录票据。
+- **失败响应**：正文可能含 `密码错误` / `用户名或密码错误` / `用户名密码错误` / `您提供的用户名或者密码有误`（表示账号密码错误），或 `验证码错误` / `验证码不正确`（表示验证码错误）。
 
 ### 1.7 登录状态验证
 
@@ -148,7 +149,7 @@ GET /jsxsd/framework/xsMain.jsp
 GET /jsxsd/framework/jsMain.jsp
 ```
 
-- 请求必须禁止自动跟随重定向。
+- 请求必须禁止自动跟随重定向（与 1.6 的登录交接阶段不同）。
 - 成功条件：HTTP 200，且正文包含 `教学一体化服务平台` 或 `glyphicon-class`。
 
 ---
@@ -337,8 +338,8 @@ xnxqid=<学期ID>
 | 登录：验证码 | GET | `http://zhjw.qfnu.edu.cn/verifycode.servlet` | 字节流 |
 | 登录：OCR | POST | `<OCR>/ocr` | 表单 `image`=base64 |
 | 登录：scode/sxh | POST | `http://zhjw.qfnu.edu.cn/Logon.do?method=logon&flag=sess` | 返回 `scode#sxh` |
-| 登录：提交 | POST | `http://zhjw.qfnu.edu.cn/Logon.do?method=logonLdap` | `userAccount/userPassword/RANDOMCODE/encoded` |
-| 登录：确认（学生） | GET | `http://zhjw.qfnu.edu.cn/jsxsd/framework/xsMain.jsp` | 含"教学一体化服务平台"或"glyphicon-class" |
+| 登录：提交 | POST | `http://zhjw.qfnu.edu.cn/Logon.do?method=logonLdap` | 账号字段留空；成功后同源 SSO 302 交接 |
+| 登录：确认（学生） | GET | `http://zhjw.qfnu.edu.cn/jsxsd/framework/xsMain.jsp` | 禁止跟随重定向；含"教学一体化服务平台"或"glyphicon-class" |
 | 登录：确认（教师） | GET | `http://zhjw.qfnu.edu.cn/jsxsd/framework/jsMain.jsp` | 同上 |
 | 轮次列表 | GET | `http://zhjw.qfnu.edu.cn/jsxsd/xsxk/xklc_list` | `#jrxk` 入口；`a[onclick*=xsxkFun]` 列表 |
 | 进入轮次 | GET | `http://zhjw.qfnu.edu.cn/jsxsd/xsxk/xsxk_index?jx0502zbid=<id>` | — |
