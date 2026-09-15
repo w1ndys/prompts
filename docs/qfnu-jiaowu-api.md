@@ -202,7 +202,7 @@ GET /jsxsd/xsxk/xsxk_index?jx0502zbid=<轮次ID>
 
 | href | 含义 |
 | --- | --- |
-| `/jsxsd/xsxkkc/comeInBxxk` | 必修选课（本 HAR 未再点进去） |
+| `/jsxsd/xsxkkc/comeInBxxk` | 必修选课（26 级 HAR 已点进去，见文末附录；程序主路径不依赖这一行） |
 | `/jsxsd/xsxkkc/comeInXxxk` | 选修选课 |
 | `/jsxsd/xsxkkc/comeInBxqjhxk` | 本学期计划选课 |
 | `/jsxsd/xsxkkc/comeInKnjxk` | 专业内跨年级选课 |
@@ -237,6 +237,8 @@ Referer: http://zhjw.qfnu.edu.cn/jsxsd/xsxk/xsxk_index?jx0502zbid=<轮次ID>
 | `xsxkFawxk` | 计划外选课 | `fawxkOper` | `comeInFawxk` |
 | `xsxkGgxxkxk` | 公选课选课 | `ggxxkxkOper` | `comeInGgxxkxk` |
 
+上表是程序要搜、要提交的五个模块。26 级 HAR 里页面上还有必修入口，搜索标识见文末附录；辅修仍未点进去。
+
 进入模块页：
 
 ```http
@@ -245,7 +247,7 @@ Referer: http://zhjw.qfnu.edu.cn/jsxsd/xsxk/xsxk_index?jx0502zbid=<轮次ID>
 ```
 
 - 成功：HTTP 200，HTML。公选页会额外请求 `GET /jsxsd/sys/kaptcha/handleRequestInternal`（JPEG 验证码图）。本 HAR 未提交公选，是否必须带验证码未验证。
-- 页面选课按钮脚本：`xsxkFun(jx0404id, kcid, cfbs)`。不带学时的课 `cfbs` 为 `null`/空。
+- 页面选课按钮脚本：`xsxkFun(jx0404id, kcid, cfbs)`。不带学时的课 `cfbs` 为 `null`/空。浏览器还会按抽签开关拼出另外三种链接形状，见文末附录；程序提交按 4.1 / 4.3，不必解析这些按钮。
 
 ### 3.2 搜索请求
 
@@ -283,7 +285,7 @@ POST 请求体（`application/x-www-form-urlencoded`）：
 - 公选课 13 列：多 `xxrs`、`szkcflmc`，无 `fzmc` 列
 
 - 成功条件：HTTP 200；`Content-Type` 常标成 `text/html`，正文仍是 JSON。
-- 官方 URL 可能多一个空参数 `skxq_xx0103=`，可忽略。
+- 官方 URL 可能多一个空参数 `skxq_xx0103=`，可忽略。各模块官方页还会带另一些模板字段，见文末附录；只发本节通用参数也能搜。
 
 ### 3.3 节次编码规则（skjc）
 
@@ -640,3 +642,77 @@ GET /jsxsd/xsxkjg/xsxkkb
 | 选课课表 | GET | `/jsxsd/xsxkjg/xsxkkb` | 可跳过 | 200 HTML |
 
 *接口返回内容可能因教务系统版本或角色而变化，实际行为以线上响应为准。*
+
+---
+
+## 附录：26 级 HAR 原始请求补充（脚本可忽略）
+
+> 来源：2026-09-14 `26级选课搜索.har`。下列是浏览器页面实际发出的请求、页面脚本拼出来的链接，以及各模块模板自带的 query 差异。**不是**选课程序的必走路径。正文 3.x / 4.x 已经给出程序该发的请求；开发选课脚本时下面这些可以不看、不实现。
+
+### A. 页面选课按钮的四种形状
+
+搜索结果表「操作」列的选课链接不是服务端返回的，而是页面 `kxkcHandleData()` 用页面内写死的 `qycqxk`（是否启用抽签）与 `cqxklx`（抽签类型）逐行拼出来的：
+
+| 分支 | 生成的链接 | 参数位置 |
+| --- | --- | --- |
+| `qycqxk!=1` 普通 | `javascript:xsxkOper('jx0404id','','','jx02id','cfbs')` | 1=`jx0404id`，4=`jx02id`，5=`cfbs` |
+| `qycqxk=1`、`cqxklx=1` 随机 | `javascript:xsxkFun('jx0404id','jx02id','cfbs')` | 1=`jx0404id`，2=`jx02id`，3=`cfbs` |
+| `qycqxk=1`、`cqxklx=2` 报志愿 | `javascript:openXkzyView('jx0404id','jx02id','cfbs')` | 弹窗填志愿，再走 `xsxkOper(...,xkzy,...)` |
+| `qycqxk=1`、`cqxklx=3` 投积分 | `javascript:openXkjfView('jx0404id','jx02id','cfbs')` | 弹窗投积分，再走 `xsxkOper(...,trjf,...)` |
+
+- 26 级 HAR 里六个模块页的 `qycqxk` 都是 `"0"`，当场拼的是普通模式（五参 `xsxkOper`）。带学时/公选 HAR 见到的三参 `xsxkFun` 是抽签随机模式。两者都是教学班按钮，提交最终仍落到模块 `*Oper`。
+- **同一个函数名跨多个模块**：`xsxkOper` 同时出现在必修与选修，`xsxkFun` 同时出现在本学期计划、计划外、公选课。链接本身不含模块信息。
+- 参数 `cfbs` 取自响应的 `cfbs`；该字段为 `null` 时字符串拼接后落成字面量 `'null'`，所以链接里常看到第五/第三个参数是 `'null'`。
+- 同页还有 `openkcjj(jx0404id)`（课程简介）、`openjsjj(jsid,jgh)`（教师简介），不是选课链接。
+
+### B. 必修模块搜索（本 HAR 点进去了）
+
+| 模块标识 | 中文含义 | 操作动作（oper） | 来源页面 |
+| --- | --- | --- | --- |
+| `xsxkBxxk` | 必修选课 | `bxxkOper` | `comeInBxxk` |
+
+搜索体与选修同形，11 列。辅修专业选课（`comeInFxzyxk`）本 HAR 仍没点进去，搜索标识与操作动作未实测。
+
+### C. 各模块官方页搜索 query 的模板差异
+
+官方页实际发的 query（除 `kcxx`/`skls`/`skxq`/`skjc` 外都是页面模板写死的）：
+
+| 模块 | query |
+| --- | --- |
+| `xsxkBxxk` / `xsxkXxxk` | `kcxx=&skls=&skxq=&skjc=&sfym=false&sfct=false&sfxx=true` |
+| `xsxkBxqjhxk` / `xsxkKnjxk` | 同上，末尾多 `&skxq_xx0103=` |
+| `xsxkFawxk` | 同上，末尾多 `&skxq_xx0103=&kzyxkbx=0&kzyxkxx=0&kzyxkrx=0&kzyxkqt=0` |
+| `xsxkGgxxkxk` | `kcxx=&skls=&skxq=&skjc=&sfym=&sfct=&szjylb=&sfxx=true`（有 `szjylb`，无 `skxq_xx0103`；`sfym`/`sfct` 为空而非 `false`） |
+
+- 三个过滤开关是页面复选框：`sfym`=过滤已满、`sfct`=过滤冲突、`sfxx`=过滤限选。只有 `sfxx` 默认勾选，所以官方页发 `sfxx=true`；`sfym`/`sfct` 默认不勾。程序要全量候选时三项发 `false` 即可（见 3.2）。
+- `kcxx` 为空时行为按模块不同：必修、选修、公选课空 `kcxx` 仍有结果（6/4/42 条）；本学期计划、专业内跨年级、计划外空 `kcxx` 返回 0 条，必须带 `kcxx`。
+- `skxq_xx0103=`、`kzyxk*`、`szjylb` 都可省略（跨年级/公选 HAR 已验证只发通用参数也能搜）。
+
+### D. 官方页服务端分页与列数
+
+官方页是服务端分页：`iDisplayLength=15`，`iTotalRecords` 是命中总数、`aaData` 只回当前页。26 级 HAR 实测：本学期计划 329/15、计划外 353/15、公选课 42/15。程序按 3.2 显式放大 `iDisplayLength` 即可，不必模仿官方 15 条。
+
+官方 body 的 DataTables 字段：`sEcho=1`、`iColumns`、`sColumns=`、`iDisplayStart`、`iDisplayLength`、`mDataProp_0..n`。列数按模块不同：必修/选修 11 列，本学期计划/专业内跨年级/计划外 12 列，公选课 13 列。这些字段可省略。
+
+### E. 搜索响应里多出来的字段现象
+
+- `cfbs` 不只在带学时的课里出现：计划外模块中 `kch=072126` 同一 `jx02id` 有 `cfbs=1`（电工学[讲课学时]）与 `cfbs=4`（电工学[实验学时]）两行；同一门课的多个教学班共用 `jx02id`、靠 `jx0404id` 区分（`kch=081004` 无机化学1 一次出现 6 行，`cfbs` 均为 `null`）。
+- `kch` 与 `jx02id` 可能同值（计划外 `kch=03414008` 的行 `jx02id` 也是 `03414008`），但两者语义不同，不能互相顶替。
+- `xkrs`（选课人数）/`syrs`（剩余量）/`xxrs`（限选人数）不是每个模块都返回：必修、选修 11 列里没有，`syrs` 还可能是 `null`。
+
+### F. 浏览器点「选课」时实际发出的请求
+
+页面脚本是 `xsxkOper(jx0404id, xkzy, trjf, kcid, cfbs)`。随机模式的 `xsxkFun(jx0404id, kcid, cfbs)` 只负责弹确认框、隐藏按钮，然后原样转调 `xsxkOper(jx0404id, "", "", kcid, cfbs)`；报志愿/投积分模式由弹窗补上 `xkzy`/`trjf` 后再转调。点一次「选课」浏览器会发三件事：
+
+1. 同步查是否已修读：`GET /jsxsd/xsxkkc/iscx?jx0404id=<教学班ID>&kcid=<课程ID>`，响应示例 `{"status": [false, true]}`。两布尔含义未确认；`status` 为真时页面弹「该课程已修读，是否确认选课？」。选课主路径不依赖它（正文 4.1 已写可跳过）。
+2. 页面变量 `sfyzmxk`（是否验证码选课）为 `1` 时改走验证码分支：先把 `jx0404id`/`xkzy`/`trjf`/`kcid`/`cfbs` 填进隐藏表单并取验证码，再带 `verifyCode` 提交。跨年级/公选/26 级 HAR 里该变量都是 `0`，此分支未实测。
+3. 主提交（`sfyzmxk!=1`）：
+
+```http
+GET /jsxsd/xsxkkc/<操作动作>?kcid=<课程ID>&cfbs=<cfbs>&jx0404id=<教学班ID>&xkzy=<志愿>&trjf=<投入积分>&_=<当前Unix毫秒时间戳>
+```
+
+- `kcid` 与 `cfbs` 拼在 URL 上，`jx0404id`/`xkzy`/`trjf` 放在 `$.ajax` 的 `data` 里；jQuery 默认 GET，最终全部落在 query string。`cfbs` 原样透传，**包括字面量 `null`**。
+- 普通直选时 `xkzy`/`trjf` 为空。程序按正文 4.1 只带 `kcid` + `jx0404id` 即可；带实验学时按 4.3。
+
+公选 HAR 未抓到 `ggxxkxkOper` 提交，成功形态以跨年级实测为准，见 4.2。
