@@ -1,6 +1,6 @@
 # Loci Markdown 记忆生成
 
-完整协议在 [`docs/loci-markdown-generation.md`](../docs/loci-markdown-generation.md)。把那份文档当作唯一规范执行，不要凭记忆简化。
+完整协议在 [`docs/loci-markdown-generation.md`](../docs/loci-markdown-generation.md)。运用方式在 [`docs/loci-memory-usage.md`](../docs/loci-memory-usage.md)。常驻短规则用 [`loci-memory-system.md`](loci-memory-system.md)，写入时调用 skill https://github.com/w1ndys/skills/tree/main/markdown-memory 。不要把完整协议贴进系统提示词。
 
 启动时只读 L1：`plan.md`、`me/preferences.md`、`projects/index.md`、当前任务快照。不要预加载 inbox、日记、旧决策、操作总账。
 

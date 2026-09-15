@@ -17,3 +17,4 @@
 | [qfnu-jiaowu-api.md](qfnu-jiaowu-api.md) | #24, #26 | 【接口文档】强智教务系统 HTTP API（登录、选课与结果查询） |
 | [qfnu-teacher-grade-collection-api.md](qfnu-teacher-grade-collection-api.md) | #25 | 【接口文档】强智教务系统教师端成绩采集 API |
 | [loci-markdown-generation.md](loci-markdown-generation.md) | #29 | [AI 记忆] Loci Markdown 记忆生成协议（蒸馏、路由、分层加载与复刻清单） |
+| [loci-memory-usage.md](loci-memory-usage.md) | #30 | [AI 记忆] 用系统提示词 + skill 随对话不断完善 Markdown 记忆 |

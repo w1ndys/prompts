@@ -16,3 +16,4 @@
 | [vibe-coding-comments.md](vibe-coding-comments.md) | #17 | [AI 协作规范] Vibe Coding 辅助代码注释与决策记录规范 |
 | [simple-syntax-architecture.md](simple-syntax-architecture.md) | #21 | 用最土的语法，搭最稳的架构（AGENTS.md） |
 | [loci-markdown-generation.md](loci-markdown-generation.md) | #29 | [AI 记忆] Loci Markdown 记忆生成协议的启动提示词 |
+| [loci-memory-system.md](loci-memory-system.md) | #30 | [AI 记忆] 常驻系统提示词：有信号则调用 markdown-memory skill |
