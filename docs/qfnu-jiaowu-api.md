@@ -85,7 +85,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 | 字段 | 含义 |
 | --- | --- |
-| `code` | 数字或字符串，`200` 或 `0` 表示成功 |
+| `code` | 数字或字符串，`200` 表示成功 |
 | `data` | 识别出的验证码文本 |
 | `message` | 错误信息 |
 
