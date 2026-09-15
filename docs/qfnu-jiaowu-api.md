@@ -11,7 +11,8 @@
 
 - **基础地址**：`http://zhjw.qfnu.edu.cn`
 - **会话**：所有请求复用同一套 Cookie（会话 Cookie，如 `JSESSIONID`）；验证码、`scode`、`sxh` 与该会话绑定。
-- **User-Agent**：默认 `Mozilla/5.0`；选课请求使用完整浏览器 UA（Chrome/Edge 132）；结果查询请求使用 Chrome 141。
+- **User-Agent**：全程使用同一条真实桌面版 Chrome 标识，不要发裸 `Mozilla/5.0`：
+  `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36`
 - **重定向**：登录提交后的 SSO 交接仅允许跟随同源重定向；登录状态验证必须禁止自动跟随重定向，以便识别 `301/302`。
 
 > 响应特征：搜索/选课接口在会话失效时，响应体可能被替换为登录页（同时含 `请输入账号`、`请输入密码`、`请输入验证码`）；账号异地登录时响应体含 `您的账号在其它地方登录`。
@@ -49,7 +50,7 @@
 
 ```http
 GET /
-User-Agent: Mozilla/5.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
 ```
 
 - 成功条件：HTTP 状态码 < 400（响应体直接丢弃）。
@@ -59,7 +60,7 @@ User-Agent: Mozilla/5.0
 
 ```http
 GET /verifycode.servlet
-User-Agent: Mozilla/5.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
 ```
 
 - 成功条件：HTTP 200 且响应体非空（验证码图片二进制数据）。
@@ -71,7 +72,7 @@ OCR 服务地址由调用方提供：
 ```http
 POST <OCR 服务地址>/ocr
 Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
 ```
 
 表单字段：
@@ -103,7 +104,7 @@ User-Agent: Mozilla/5.0
 ```http
 POST /Logon.do?method=logon&flag=sess
 Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
 
 (空请求体)
 ```
@@ -125,7 +126,7 @@ User-Agent: Mozilla/5.0
 ```http
 POST /Logon.do?method=logonLdap
 Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
 
 userAccount=
 userPassword=
